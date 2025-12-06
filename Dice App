@@ -1,0 +1,58 @@
+import random
+from random import randint
+
+
+def dice_sides():
+   sides = int(input("How many sides does your dice have? "))
+   return sides
+
+
+def dice_number():
+   dices = int(input("How many dice would you like to roll? "))
+   return dices
+
+
+def roll_dice(sides, number):
+   #It takes the arguments that I send in from the dice sides and number and it rolls random numbers using randint and puts it inside the dice list when i then return
+   dice = []
+   print("You rolled", number, sides, "sided dice")
+
+
+   for i in range(number):
+       integer = randint(1, sides)
+       print(integer)
+       dice.append(integer)
+
+
+   return dice
+
+
+def sum_dice(dice_values):
+   total = sum(dice_values)
+   print("The total value of your roll is", total)
+
+
+def roll_again():
+   again = input("Would you like to roll again (y/n): ")
+   if again.lower() == "y":
+       return True
+   else:
+       return False
+
+
+
+
+print("hi welcome and roll dice")
+rolling = True
+
+
+while rolling:
+   # used rolling = roll_again() so that when roll again returns false, it doesnt fit the conditional anymore and exits
+   rolled_dice = roll_dice(dice_sides(), dice_number())
+   sum_dice(rolled_dice)
+
+
+   rolling = roll_again()
+
+
+print("Thank you for using the python Dice app")
